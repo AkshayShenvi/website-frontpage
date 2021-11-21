@@ -1,9 +1,9 @@
 FROM node:15
 
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY ./package.json .
+COPY package*.json ./
 
 ARG NODE_ENV
 
@@ -14,9 +14,9 @@ RUN if [ "$NODE_ENV" = "development" ]; \
 
 COPY . .
 
-ENV PORT 3001
+ENV PORT 3000
 
 
 EXPOSE $PORT
 
-CMD ["npm","start"]
+CMD ["npm", "start"]
